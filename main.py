@@ -57,6 +57,9 @@ def get_room_list(l_price,h_price,State,if_student,Permanent):
 		print_info("Parsing html file to room entity")
 		room_entities.append(RoomEntity.parse_from_html(entry))
 	return room_entities
+
+def send_msg_to_room_advertiser(info:TENANT_INFO,room:RoomEntity):
+	
 	
 
 
