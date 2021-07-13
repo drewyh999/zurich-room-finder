@@ -54,12 +54,9 @@ def get_room_list(l_price,h_price,State,if_student,Permanent):
 	
 	room_entities = []
 	for entry in avaliable_rooms_entries:
+		print_info("Parsing html file to room entity")
 		room_entities.append(RoomEntity.parse_from_html(entry))
-		# room_response = requests.get(room_url)
-		# room_soup = BeautifulSoup(room_response.text, features = "html.parser")
-	print("\nRoom found:\n")
-	for entity in room_entities:
-		print(str(entity.id) + " " + str(entity.from_date) + " " + str(entity.until_date))
+	return room_entities
 	
 
 
@@ -135,7 +132,14 @@ def main():
 			break
 		print("Illegal selection!!")
 
-	get_room_list(l_price,h_price,State,if_student,Permanent)
+	room_entities = get_room_list(l_price,h_price,State,if_student,Permanent)
+
+	print("\nRooms found:\n")
+	print('{:40}{:25}{:25}'.format('id','From','Until'))
+	for entity in room_entities:
+		print('{:40}{:25}{:25}'.format(str(entity.id),str(entity.from_date) ,str(entity.until_date)))
+	
+
 
 
 if __name__ == "__main__":

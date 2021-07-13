@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 from bs4 import Tag
 
 class RoomEntity:
@@ -14,7 +14,7 @@ class RoomEntity:
 
 	@staticmethod
 	def parse_from_html(entry:Tag):
-		print_info("Parsing html file to room entity")
+		
 		wgzimmer_url_header = "https://www.wgzimmer.ch"
 		room_a_tag = entry.contents[3]
 		room_url = wgzimmer_url_header + room_a_tag['href']
