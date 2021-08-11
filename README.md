@@ -21,7 +21,7 @@ Web spider that search and send message for you to rent a room from online renti
 
 > The spider use email to notify you when there are new room ads on the website, to do this, you must have an extra email for the spider to send the notification(Sorry I didn't use any email sending api), and register this sender email account to the yagmail library.
 
-> Before doing this, make sure you have turning on the SMTP service of the sender email
+> Before doing this, make sure you have turned on the SMTP service of the sender email
 
 Open a python interpreter and run:
 
