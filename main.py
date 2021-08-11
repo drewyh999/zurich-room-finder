@@ -161,10 +161,10 @@ def main():
 
 	#room_entities = get_room_list(l_price,h_price,State,if_student,Permanent)
 	pre_ads_found = -1
-	msg_change = f"Given the search conditions as below, there has been changes happened on the wgzimmer website\nLowest price from {l_price} highest price to {h_price}\n Place of the property:{State}\n Search only students:{if_student}\n Search permanent room:{Permanent}"
 	while True:
 		print(f"\n\nRefreshing results::::::::::{datetime.now()}")
 		total_ads_found = get_total_ads_number(l_price,h_price,State,if_student,Permanent)
+		msg_change = f"Given the search conditions as below, there has been changes happened on the wgzimmer website\nLowest price from {l_price} highest price to {h_price}\n Place of the property:{State}\n Search only students:{if_student}\n Search permanent room:{Permanent}\nCurrent number of ads:{total_ads_found}"
 		if pre_ads_found == -1:
 			msg_init = f"Started to monitor changes based on the following conditions:\nLowest price from {l_price} highest price to {h_price}\n Place of the property:{State}\n Search only students:{if_student}\n Search permanent room:{Permanent}\n Current number of ads:{total_ads_found}"
 			notify_through_email(msg_init)
