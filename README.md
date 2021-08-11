@@ -45,4 +45,4 @@ SENDER_EMAIL_ACCOUNT = {
 RECEIVER_EMAIL = "your_receiver_email"
 ```
 
-## 3.Run the main.py and get notifications:)
+## 3.Run the main.py and get notifications :)
