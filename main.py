@@ -92,7 +92,7 @@ def check_config():
 			exit(1)
 def notify_through_email(msg:str):
 	yagmail.SMTP(SENDER_EMAIL_ACCOUNT["account"],host=SENDER_EMAIL_ACCOUNT["host"],port=SENDER_EMAIL_ACCOUNT["port"]).send(RECEIVER_EMAIL,'Changes on the wgzimmer website',msg)
-	print_info("Sending email to " + RECEIVER_EMAIL)
+	print("Sending email to " + RECEIVER_EMAIL)
 
 def main():
 	print_welcome()
