@@ -30,7 +30,7 @@ import yagmail
 yagmail.register('sender_email_username', 'sender_email_password')
 
 ```
-Which stores your specified sender email username and password to your keyring, which will not be acquire by others
+Which stores your specified sender email username and password to your keyring, which will not be acquired by others
 
 ## 2.Fill in the notification receiving email and host as well as the sender email:
 
