@@ -12,7 +12,7 @@ SENDER_EMAIL_ACCOUNT = {
 }
 RECEIVER_EMAIL = ""
 
-FREQUENCY = 60 #Determines how many times refresh within an hour
+FREQUENCY = 4 #Determines how many times refresh within an hour
 
 #City names and values
 CITY_NAMES = {
