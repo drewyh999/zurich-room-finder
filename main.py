@@ -170,6 +170,7 @@ def main():
 			notify_through_email(msg_init)
 			pre_ads_found = total_ads_found
 		elif pre_ads_found - total_ads_found != 0:
+			pre_ads_found = total_ads_found
 			notify_through_email(msg_change)
 		else:
 			print("No change detected")
