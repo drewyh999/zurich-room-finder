@@ -7,7 +7,7 @@ import re
 import time
 import yagmail
 
-from config import TENANT_INFO
+
 from config import CITY_NAMES
 from config import VERBOSE_MODE
 from config import HEADERS
@@ -91,7 +91,7 @@ def check_config():
 			print("Tenant info not filled!")
 			exit(1)
 def notify_through_email(msg:str):
-	yagmail.SMTP(SENDER_EMAIL_ACCOUNT["account"],host=SENDER_EMAIL_ACCOUNT["host"],port='465').send(RECEIVER_EMAIL,'Changes on the wgzimmer website',msg)
+	yagmail.SMTP(SENDER_EMAIL_ACCOUNT["account"],host=SENDER_EMAIL_ACCOUNT["host"],port=SENDER_EMAIL_ACCOUNT["port"]).send(RECEIVER_EMAIL,'Changes on the wgzimmer website',msg)
 	print_info("Sending email to " + RECEIVER_EMAIL)
 
 def main():
