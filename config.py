@@ -8,7 +8,7 @@ HEADERS = {
 }
 ETH_HEADERS = {
    "user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
-   "cookie":"ORA_FPC=id=8db844b9-175f-4e72-afb9-2ad2e4e0733c; _ga=GA1.2.399428582.1629553942; PHPSESSID=b4798f9f4b00e3629d97aa0e4b2922bf; sid=fe95aa25dbebc059347e9a860e12f8c3; lang=88N%2BTYOYRsgWmFlkRr8KEDSE0lQeF03AFRc5ZQpFGe3EEqhXAirQhvt3RZ7c0u2Yi%2FBSsIaIP2eqeVX%2BbBC%2FLw%3D%3D",
+   "cookie":"ORA_FPC=id=8db844b9-175f-4e72-afb9-2ad2e4e0733c; _ga=GA1.2.399428582.1629553942; PHPSESSID=b4798f9f4b00e3629d97aa0e4b2922bf; lang=TV5RL4j%2BmaA1ORKbZEAFETE7O90Bu5h7GGYst7EWRpIQZP5dt3g10B9Va4dxM9rWqDy0sv%2BKcRy8w0z86d6i2w%3D%3D; _gid=GA1.2.931616608.1631449784; sid=fe95aa25dbebc059347e9a860e12f8c3",
    "connection":"keep-alive"
 }
 
@@ -18,13 +18,28 @@ SENDER_EMAIL_ACCOUNT = {
    "port":"465"
 }
 
+pre_ads_found = -1
+
+WGZIMMER_CONDITIONS = {
+      "query":"",
+      "priceMin":"200",
+      "priceMax":"1500",
+      "state":"zurich-stadt",
+      "permanent":"true",
+      "student":"none",
+      "orderBy":"@sortDate",
+      "orderDir":"descending",
+      "startSearchMate":"true",
+      "wgStartSearch":"true",
+      "start":"0"
+}
+
 RECEIVER_EMAIL = "drewyh1999@outlook.com"
 
 FREQUENCY = 4 #Determines how many times refresh within an hour
 
 #City names and values
 CITY_NAMES = {
-
    "Aargau":"aargau",
    "Aarau (Stadt)":"aarau",
    "Appenzell Innerrhoden":"appenzell-innerrhoden",
@@ -84,6 +99,5 @@ CITY_NAMES = {
    "Zurich (Unterland, Weinland, Limmattal)":"zurich",
    "Zürich (Oberland, Glattal)":"zurich-oberland",
    "Liechtenstein":"liechtenstein"
-
 }
 

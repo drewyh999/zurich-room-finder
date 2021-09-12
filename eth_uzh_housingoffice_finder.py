@@ -15,18 +15,55 @@ from config import RECEIVER_EMAIL
 from room_entity import ETHHousingWebsiteRoomEntity
 from utils import print_info
 
+def notify_through_email(msg:str):
+	yagmail.SMTP(SENDER_EMAIL_ACCOUNT["account"],host=SENDER_EMAIL_ACCOUNT["host"],port=SENDER_EMAIL_ACCOUNT["port"]).send(RECEIVER_EMAIL,'Changes on the eth-uzh housing website',msg)
+	print("Sending email to " + RECEIVER_EMAIL)
+
 
 def get_new_room_list():
 	eth_url = "https://wohnen.ethz.ch/index.php?act=listfoundoffer&pid=1&what=9&sort=1"
 	print_info(f"Sending request to eth-uzh housing office site {eth_url} with cookie\n{ETH_HEADERS}")
 	response = requests.get(eth_url,headers=ETH_HEADERS)
-	print_info("\n Response received::::")
+	print_info("\nResponse received::::\n")
 	soup = BeautifulSoup(response.text, features = "html.parser")
 	room_list = soup.find(class_='listing').find_all("tr")[1::2]
 	room_entities = []
 	for entry in room_list:
 		room_entities.append(ETHHousingWebsiteRoomEntity.parse_from_html(entry))
-	
+	new_room_list = []
+	visited_room_id_list = []
+	#Determine if we visited the newly got rooms
+	with open("visited_room_id.txt",'r') as f:
+		for line in f:
+			visited_room_id_list.append(int(line))
+	for entity in room_entities:
+		new_room_id = int(entity.id)
+		visited = False
+		for room_id in visited_room_id_list:
+			if new_room_id == room_id:
+				visited = True
+		if not visited:
+			new_room_list.append(entity)
 
-def eth_uzh_main():
+	#Write back the new room list to the visited room id file
+	with open("visited_room_id.txt",'a+') as f:
+		for entity in new_room_list:
+			f.write(f"{entity.id}\n")
+
+	return new_room_list
+
+def eth_uzh_refresh():
+	print(f"\nRefreshing results on eth-uzh housing website::::{datetime.now()}\n")
 	new_room_list = get_new_room_list()
+	for new_room in new_room_list:
+		msg = f"New room avaliable on eth-uzh housing website with following information:\n" \
+		+ f"Room ads No.:{new_room.id}\nPrice:{new_room.price}\nDistrict:{new_room.district}\n" \
+		+ f"Room type:{new_room.room_type}\nRooms:{new_room.rooms}\nFrom date:{new_room.from_date}\n" \
+		+ f"Until date:{new_room.until_date}\nFurnished:{new_room.furnished}"
+		notify_through_email(msg)
+	if len(new_room_list) == 0:
+		print("\nNo change detected on eth-uzh housing website:::::\n")
+
+
+
+
