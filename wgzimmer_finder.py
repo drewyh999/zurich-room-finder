@@ -8,7 +8,7 @@ import time
 import yagmail
 
 from config import CITY_NAMES
-from config import HEADERS
+from config import WGZIMMER_HEADERS
 from config import SENDER_EMAIL_ACCOUNT
 from config import FREQUENCY
 from config import RECEIVER_EMAIL
@@ -16,20 +16,18 @@ from config import WGZIMMER_CONDITIONS
 
 from room_entity import WgzimmerRoomEntity
 from utils import print_info
+from utils import notify_through_email
 
 pre_ads_found = -1
 
 
-def notify_through_email(msg:str):
-	yagmail.SMTP(SENDER_EMAIL_ACCOUNT["account"],host=SENDER_EMAIL_ACCOUNT["host"],port=SENDER_EMAIL_ACCOUNT["port"]).send(RECEIVER_EMAIL,'Changes on the wgzimmer website',msg)
-	print("Sending email to " + RECEIVER_EMAIL)
 
 def get_total_ads_number(WGZIMMER_CONDITIONS):
 	url = "https://www.wgzimmer.ch/en/wgzimmer/search/mate.html?"
 	print_info("Getting total ads number for lowest price from " + str(WGZIMMER_CONDITIONS["priceMin"]) + " to " + str(WGZIMMER_CONDITIONS["priceMax"]) + " at " + str(WGZIMMER_CONDITIONS["state"]))
 	print_info("\nForm data submited" + str(WGZIMMER_CONDITIONS))
-	print_info("\nSending request with post method to" + url + "Headers:" + str(HEADERS))
-	response = requests.post(url, WGZIMMER_CONDITIONS,headers = HEADERS)
+	print_info("\nSending request with post method to" + url + "Headers:" + str(WGZIMMER_HEADERS))
+	response = requests.post(url, WGZIMMER_CONDITIONS,headers = WGZIMMER_HEADERS)
 
 	print_info("\n Response received::::")
 	soup = BeautifulSoup(response.text, features = "html.parser")
@@ -49,7 +47,7 @@ def wgzimmer_refresh(pre_ads_found):
 		pre_ads_found = total_ads_found
 	elif pre_ads_found - total_ads_found != 0:
 		pre_ads_found = total_ads_found
-		notify_through_email(msg_change)
+		notify_through_email('Changes happened on the wgzimmer website',msg_change)
 	else:
 		print("\nNo change detected on wgzimmer website::::\n")
 	return pre_ads_found

@@ -1,14 +1,14 @@
 #Print verbose information or not
 VERBOSE_MODE = False
 
-HEADERS = {
+WGZIMMER_HEADERS = {
    "user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
    "cookie":"wc_currencyLocale=de_CH; wc_color=babyblue; wc_email=\"info@wgzimmer.ch\"; wc_currencySign=sFr.; _ga=GA1.2.223238142.1621679202; _pk_id.1.02e6=bac4849e8492533a.1621679204.; wc_language=en; ezCMPCCS=true; __qca=P0-1584377785-1622526586520; ezux_ifep_122604=true; ezosuigenerisc=b9f0f8334082639d8057253f3f99fb54; ezosuigeneris=d05af44140e621a3808e0cb61b09af19; ezds=ffid%3D1%2Cw%3D1920%2Ch%3D1080; ezohw=w%3D1858%2Ch%3D976; ezouspvh=950; ezouspvv=302; ezouspva=25; __gads=ID=53d78ed7fcff0bf7-220a772d29ca0019:T=1625478347:RT=1625478347:S=ALNI_MZRv0KZYKE__CK0giRuZM8GxnMXOg; _gid=GA1.2.578977251.1626012193; JSESSIONID=F5830DB75AC3DD35747D9100B925A0BB; ezoadgid_122604=-1; ezoref_122604=wgzimmer.ch; ezoab_122604=mod1; lp_122604=https://www.wgzimmer.ch/en/wgzimmer/search/mate.html?wgSearchStartOver=true; ezovuuid_122604=2edc70fb-c4ed-474b-5c99-1bcc0112d319; active_template::122604=orig_site.1626055904; ezovuuidtime_122604=1626055905; ezopvc_122604=13; _gat_gtag_UA_974772_2=1; ezux_lpl_122604=1626055912636|0d0d4f67-5dfe-48af-6f71-4990efc90596|true; ezux_et_122604=7778; ezux_tos_122604=596010",
    "connection":"close"
 }
 ETH_HEADERS = {
    "user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
-   "cookie":"ORA_FPC=id=8db844b9-175f-4e72-afb9-2ad2e4e0733c; _ga=GA1.2.399428582.1629553942; PHPSESSID=b4798f9f4b00e3629d97aa0e4b2922bf; lang=TV5RL4j%2BmaA1ORKbZEAFETE7O90Bu5h7GGYst7EWRpIQZP5dt3g10B9Va4dxM9rWqDy0sv%2BKcRy8w0z86d6i2w%3D%3D; _gid=GA1.2.931616608.1631449784; sid=fe95aa25dbebc059347e9a860e12f8c3",
+   "cookie":"ORA_FPC=id=8db844b9-175f-4e72-afb9-2ad2e4e0733c; _ga=GA1.2.399428582.1629553942; PHPSESSID=b4798f9f4b00e3629d97aa0e4b2922bf; lang=TV5RL4j%2BmaA1ORKbZEAFETE7O90Bu5h7GGYst7EWRpIQZP5dt3g10B9Va4dxM9rWqDy0sv%2BKcRy8w0z86d6i2w%3D%3D; sid=fe95aa25dbebc059347e9a860e12f8c3",
    "connection":"keep-alive"
 }
 
