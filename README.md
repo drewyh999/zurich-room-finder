@@ -1,7 +1,7 @@
 # zurich-room-finder
 Web spider that search and send message for you to rent a room from online renting platform like wgzimmer
 
-- Currently support [wgzimmer](https://www.wgzimmer.ch/) and [eth-uzh housing website](https://wohnen.ethz.ch/index.php?act=searchoffer)(Requires you to be enrolled at either of the university)
+- Currently support [wgzimmer](https://www.wgzimmer.ch/) and [eth-uzh housing website](https://wohnen.ethz.ch/index.php?act=searchoffer)(Requires you to be enrolled at either of the university), and can also monitor the changes happening on the [WOKO Zurich website](http://www.woko.ch/en/zimmer-in-zuerich).
 
 # Stuck, for cannot bypass the god damn Google recaptcha when you submit the message form
 
