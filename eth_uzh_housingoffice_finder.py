@@ -24,8 +24,8 @@ def get_new_room_list():
 	response = requests.get(eth_url,headers=ETH_HEADERS)
 	print_info("\nResponse received::::\n")
 	soup = BeautifulSoup(response.text, features = "html.parser")
-	if soup is None:
-		print("Eth-uzh housing website cookie needs to be updated",file=sys.err)
+	if soup.find(class_='listing') is None:
+		print("Eth-uzh housing website cookie needs to be updated",file=sys.stderr)
 		exit(1)
 	room_list = soup.find(class_='listing').find_all("tr")[1::2]
 	if len(room_list) == 0:
